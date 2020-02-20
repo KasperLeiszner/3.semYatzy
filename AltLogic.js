@@ -127,20 +127,25 @@ function yatzy() {
     return 0;
 }
 
+/*
+    
+*/
 function possibleScorings() {
     scorings = [];
     for (let i = 1; i < 7; i++) {
         scorings.push(sameValue(i));
     }
-    pointsFunctions[onePairPoints, twoPairPoints, threeOfAKind, fourOfAKind, fullHouse, smallStraight, 
+    pointsFunctions[onePairPoints, twoPairPoints, threeOfAKind, fourOfAKind, fullHouse, smallStraight,
         bigStraight, chance, yatzy];
 
-    for(pointsFunction of pointsFunctions) {
+    for (pointsFunction of pointsFunctions) {
         scorings.push(pointsFunction());
     }
 
-
+    return scorings;
 }
+
+//Testing area
 
 // throwDice(holds);
 // console.log(dice);
