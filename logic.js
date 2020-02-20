@@ -15,6 +15,7 @@ let diceCup = {
             die.roll();
         }
     }
+
 } 
 
 function createDie(amountOfFaces) {
