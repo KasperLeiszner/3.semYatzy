@@ -127,36 +127,41 @@ function yatzy() {
     return 0;
 }
 
+/*
+    
+*/
 function possibleScorings() {
     scorings = [];
     for (let i = 1; i < 7; i++) {
         scorings.push(sameValue(i));
     }
-    pointsFunctions[onePairPoints, twoPairPoints, threeOfAKind, fourOfAKind, fullHouse, smallStraight, 
+    pointsFunctions[onePairPoints, twoPairPoints, threeOfAKind, fourOfAKind, fullHouse, smallStraight,
         bigStraight, chance, yatzy];
 
-    for(pointsFunction of pointsFunctions) {
+    for (pointsFunction of pointsFunctions) {
         scorings.push(pointsFunction());
     }
 
-
+    return scorings;
 }
+
+//Testing area
 
 // throwDice(holds);
 // console.log(dice);
 // console.log(valueFrequency);
 
-setDice([1, 1, 1, 1, 1]);
-console.log(dice);
-console.log(valueFrequency);
+// setDice([1, 1, 1, 1, 1]);
+// console.log(dice);
+// console.log(valueFrequency);
 
 
-console.log(onePairPoints());
-console.log(twoPairPoints());
-console.log(threeOfAKind());
-console.log(fourOfAKind());
-console.log(fullHouse());
-console.log(smallStraight());
-console.log(bigStraight());
-console.log(chance());
-console.log(yatzy());
+// console.log(onePairPoints());
+// console.log(twoPairPoints());
+// console.log(threeOfAKind());
+// console.log(fourOfAKind());
+// console.log(fullHouse());
+// console.log(smallStraight());
+// console.log(bigStraight());
+// console.log(chance());
+// console.log(yatzy());
