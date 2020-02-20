@@ -146,17 +146,17 @@ function possibleScorings() {
 // console.log(dice);
 // console.log(valueFrequency);
 
-setDice([1, 1, 1, 1, 1]);
-console.log(dice);
-console.log(valueFrequency);
+// setDice([1, 1, 1, 1, 1]);
+// console.log(dice);
+// console.log(valueFrequency);
 
 
-console.log(onePairPoints());
-console.log(twoPairPoints());
-console.log(threeOfAKind());
-console.log(fourOfAKind());
-console.log(fullHouse());
-console.log(smallStraight());
-console.log(bigStraight());
-console.log(chance());
-console.log(yatzy());
+// console.log(onePairPoints());
+// console.log(twoPairPoints());
+// console.log(threeOfAKind());
+// console.log(fourOfAKind());
+// console.log(fullHouse());
+// console.log(smallStraight());
+// console.log(bigStraight());
+// console.log(chance());
+// console.log(yatzy());
