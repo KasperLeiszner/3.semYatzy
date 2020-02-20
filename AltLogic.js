@@ -113,7 +113,7 @@ function bigStraight() {
 }
 
 function chance() {
-    sum = 0;
+    let sum = 0;
     dice.forEach(value => sum += value)
     return sum;
 }
@@ -135,7 +135,7 @@ function possibleScorings() {
     for (let i = 1; i < 7; i++) {
         scorings.push(sameValue(i));
     }
-    pointsFunctions[onePairPoints, twoPairPoints, threeOfAKind, fourOfAKind, fullHouse, smallStraight,
+    let pointsFunctions = [onePairPoints, twoPairPoints, threeOfAKind, fourOfAKind, fullHouse, smallStraight,
         bigStraight, chance, yatzy];
 
     for (pointsFunction of pointsFunctions) {

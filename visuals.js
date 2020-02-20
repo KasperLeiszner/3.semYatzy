@@ -1,4 +1,5 @@
 let diceImg = [];
+let sum = 0;
 
 document.body.innerHTML = "<div id='contentContainer'></div>";
 let contentContainer = document.querySelector('#contentContainer');
@@ -7,9 +8,15 @@ initHeader();
 initFooter();
 assignEvents();
 
+
 function assignEvents() {
     let rollBtn = document.querySelector("#rollBtn");
     rollBtn.onclick = throwDiceEvent;
+
+    let inputObj = document.querySelectorAll('.field');
+    for (let field of inputObj) {
+        field.onclick = chosenField;
+    }
 }
 
 function initHeader() {
@@ -45,7 +52,7 @@ function initFooter() {
     let specialFields = ["Sum", "Bonus", "Total"];
 
     for (let field of fields) {
-        footer.innerHTML += "<label>" + field + "<input id='" + field + "'readonly></input></label>"
+        footer.innerHTML += "<label>" + field + "<input class='field'readonly></input></label>"
     }
 
     for (let field of specialFields) {
@@ -53,10 +60,30 @@ function initFooter() {
     }
 }
 
-function throwDiceEvent() {
+function chosenField(event) {
+    event.target.disabled = true;
+    event.target.className = "chosen";
+
+    let total = document.querySelector('#Total');
+
+    sum += parseInt(event.target.value, 10);
+    total.value = sum;
+}
+
+function throwDiceEvent(event) {
     throwDice(holds);
     updateDiceImg();
     document.querySelector("#turnLbl").innerHTML = "Turn: " + throwCount;
+    updateFields();
+}
+
+function updateFields() {
+    let fields = document.querySelectorAll('.field');
+    let scorings = possibleScorings();
+
+    for(let i = 0; i < fields.length; i++) {
+        fields[i].value = scorings[i];
+    }
 }
 
 function holdEvent() {
