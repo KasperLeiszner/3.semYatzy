@@ -1,6 +1,6 @@
 #contentContainer {
     background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-    width: 1000px;
+    width: 50%;
     padding: 10px;
 }
 
@@ -33,29 +33,70 @@
 
 #footer {
     display: grid;
-    
-    grid-template-areas:
-    'label input';
-
-    grid-gap: 10px;
-    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
     border: 1px solid black;
     padding: 20px;
+    margin: 20px;
+    text-align: right;
 }
 
-#inputCon {
-    grid-area: input;
-    margin-left: 10px;
+label {
+    grid-column-start: 1;
+    grid-column-end: 2;
 }
 
-#labelCon {
-    grid-area: label;
+input {
+    width: 90%;
 }
 
-#labelCon label {
-    display: block;  
+.field, .chosen {
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
-#inputCon input {
-    display: block;
+#sumLabel {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 7;
 }
+
+#sum {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+#bonusLabel {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+#bonus {
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+#totalLabel {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 15;
+    grid-row-end: 16;
+}
+
+#total {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 15;
+    grid-row-end: 16;
+}
+
+
+
+

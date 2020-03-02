@@ -50,35 +50,29 @@ function initHeader() {
 function initFooter() {
     contentContainer.innerHTML += "<div id='footer'></div>";
     let footer = document.querySelector('#footer');
-    footer.innerHTML += "<div id='labelCon'></div>";
-    footer.innerHTML += "<div id='inputCon'></div>";
-    footer.innerHTML += "<div id='sumCon'></div>";
-    footer.innerHTML += "<div id='bonusCon'></div>";
-    footer.innerHTML += "<div id='totalCon'></div>";
 
     let fields = ["1-s", "2-s", "3-s", "4-s", "5-s", "6-s", "One Pair", "Two Pairs", "Three Same",
     "Four Same", "Full House", "Small Straight", "Large Straight", "Chance", "Yatzy"];
 
     let specialFields = ["Sum", "Bonus", "Total"];
-    let labelCon = document.querySelector('#labelCon');
-    let inputCon = document.querySelector('#inputCon');
 
     for (let field of fields) {
-        labelCon.innerHTML += "<label>" + field + "</label>";
-        inputCon.innerHTML += "<input class='field'readonly></input>";
+        footer.innerHTML += "<label>" + field + "</label>";
+        footer.innerHTML += "<input class='field'readonly></input>";
     }
 
     for (let field of specialFields) {
-        footer.innerHTML += "<label>" + field + "<input id='" + field + "'readonly></input></label>"
+        footer.innerHTML += "<label id = '" + field.toLowerCase() + "Label" + "'>" + field + "</label>";
+        footer.innerHTML += "<input id='" + field.toLowerCase() + "'readonly></input>"
     }
 
     updateFields();
 }
 
 function chosenField(event) {
-    let totalField = document.querySelector('#Total');
-    let sumField = document.querySelector('#Sum');
-    let bonus = document.querySelector('#Bonus');
+    let totalField = document.querySelector('#total');
+    let sumField = document.querySelector('#sum');
+    let bonus = document.querySelector('#bonus');
     let sum = null;
 
     event.target.disabled = true;
@@ -119,9 +113,9 @@ function chosenField(event) {
 
 function endGame() {
     if (confirm("Dit samlede resultat er: " + total + "\nVil du spille igen?")) {
-        let sumField = document.querySelector('#Sum');
-        let bonus = document.querySelector('#Bonus');
-        let totalField = document.querySelector('#Total');
+        let sumField = document.querySelector('#sum');
+        let bonus = document.querySelector('#bonus');
+        let totalField = document.querySelector('#total');
 
         sumField.value = null;
         bonus.value = null;
@@ -179,6 +173,7 @@ function updateDiceImg() {
 
     for (let i in diceImg) {
         let target = document.querySelector("#" + diceImg[i].id);
+        target.style.visibility = "visible";
 
         switch(dice[i]) {
             case 1:
@@ -206,7 +201,8 @@ function updateDiceImg() {
                 break;
             
             default:
-                target.src = "";
+                target.src = path + "Six.png"
+                target.style.visibility = "hidden";
                 break;
         }
     }
