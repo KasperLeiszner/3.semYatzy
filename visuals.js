@@ -68,13 +68,20 @@ function chosenField(event) {
 
     sum += parseInt(event.target.value, 10);
     total.value = sum;
+    document.querySelector('#rollBtn').disabled = false;
+    updateFields();
 }
 
 function throwDiceEvent(event) {
-    throwDice(holds);
-    updateDiceImg();
-    document.querySelector("#turnLbl").innerHTML = "Turn: " + throwCount;
-    updateFields();
+    if (throwCount <= 2) {
+        throwDice(holds);
+        updateDiceImg();
+        document.querySelector("#turnLbl").innerHTML = "Turn: " + throwCount;
+        updateFields();   
+    }
+    else {
+        document.querySelector('#rollBtn').disabled = true;
+    }     
 }
 
 function updateFields() {
@@ -119,6 +126,10 @@ function updateDiceImg() {
     
             case 6:
                 target.src = path + "Six.png"
+                break;
+            
+            default:
+                target.src = "";
                 break;
         }
     }
