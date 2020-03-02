@@ -19,7 +19,6 @@ function throwDice(bools) {
 
 function setDice(intArray) {
     dice = intArray;
-    calcValueFrequency();
 }
 
 function calcValueFrequency() {
@@ -143,6 +142,13 @@ function possibleScorings() {
     }
 
     return scorings;
+}
+
+function resetThrow() {
+    throwCount = 0;
+    setDice([0, 0, 0, 0, 0]);
+    valueFrequency = [0, 0, 0, 0, 0, 0, 0];
+    holds = [false, false, false, false, false];
 }
 
 //Testing area
