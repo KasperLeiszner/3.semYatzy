@@ -42,7 +42,7 @@ function onePairPoints() {
 }
 
 function twoPairPoints() {
-    max = 0;
+    let max = 0;
     for (i = valueFrequency.length - 1; i > 0; i--) {
         if (valueFrequency[i] >= 2) {
             if (max === 0) {
@@ -75,8 +75,8 @@ function fourOfAKind() {
 }
 
 function fullHouse() {
-    threeSame = 0;
-    twoSame = 0;
+    let threeSame = 0;
+    let twoSame = 0;
     for (i = valueFrequency.length - 1; i > 0; i--) {
         if (valueFrequency[i] === 3) {
             threeSame = i * 3
@@ -130,7 +130,7 @@ function yatzy() {
     
 */
 function possibleScorings() {
-    scorings = [];
+    let scorings = [];
     for (let i = 1; i < 7; i++) {
         scorings.push(sameValue(i));
     }
