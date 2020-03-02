@@ -30,8 +30,10 @@ function createDie(amountOfFaces) {
     }
 }
 
+/*
 diceCup.addDie(6);
 diceCup.rollAll();
 console.log(diceCup.diceArray[0].value);
 diceCup.diceArray[0].roll();
 console.log(diceCup.diceArray[0].value);
+*/

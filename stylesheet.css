@@ -1,19 +1,20 @@
 #contentContainer {
-    background-color: beige;
-    width: 900px;
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    width: 1000px;
     padding: 10px;
 }
 
 #header {
     display: grid;
-    grid-column: 1fr;                         
+    grid-column: 1fr;                     
     border: 1px solid black;
     padding: 20px;
     margin: 20px;
 }
 
 #header img {
-    width: 50px;
+    padding: 5%;
+    width: 10%;
 }
 
 #header label {
@@ -32,13 +33,29 @@
 
 #footer {
     display: grid;
-    grid-auto-flow: row;                           
+    
+    grid-template-areas:
+    'label input';
+
     grid-gap: 10px;
+    
     border: 1px solid black;
     padding: 20px;
-    margin: 20px;
 }
 
-#footer input {
+#inputCon {
+    grid-area: input;
     margin-left: 10px;
+}
+
+#labelCon {
+    grid-area: label;
+}
+
+#labelCon label {
+    display: block;  
+}
+
+#inputCon input {
+    display: block;
 }

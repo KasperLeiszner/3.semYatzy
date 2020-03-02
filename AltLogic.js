@@ -23,7 +23,7 @@ function setDice(intArray) {
 
 function calcValueFrequency() {
     valueFrequency = [0, 0, 0, 0, 0, 0, 0];
-    for (i = 0; i < dice.length; i++) {
+    for (let i = 0; i < dice.length; i++) {
         valueFrequency[dice[i]]++;
     }
 }
@@ -33,7 +33,7 @@ function sameValue(value) {
 }
 
 function onePairPoints() {
-    for (i = valueFrequency.length - 1; i > 0; i--) {
+    for (let i = valueFrequency.length - 1; i > 0; i--) {
         if (valueFrequency[i] >= 2) {
             return i * 2;
         }
@@ -43,7 +43,7 @@ function onePairPoints() {
 
 function twoPairPoints() {
     let max = 0;
-    for (i = valueFrequency.length - 1; i > 0; i--) {
+    for (let i = valueFrequency.length - 1; i > 0; i--) {
         if (valueFrequency[i] >= 2) {
             if (max === 0) {
                 max = i * 2;
@@ -57,7 +57,7 @@ function twoPairPoints() {
 }
 
 function threeOfAKind() {
-    for (i = valueFrequency.length - 1; i > 0; i--) {
+    for (let i = valueFrequency.length - 1; i > 0; i--) {
         if (valueFrequency[i] >= 3) {
             return i * 3;
         }
@@ -66,7 +66,7 @@ function threeOfAKind() {
 }
 
 function fourOfAKind() {
-    for (i = valueFrequency.length - 1; i > 0; i--) {
+    for (let i = valueFrequency.length - 1; i > 0; i--) {
         if (valueFrequency[i] >= 4) {
             return i * 4;
         }
@@ -77,11 +77,11 @@ function fourOfAKind() {
 function fullHouse() {
     let threeSame = 0;
     let twoSame = 0;
-    for (i = valueFrequency.length - 1; i > 0; i--) {
+    for (let i = valueFrequency.length - 1; i > 0; i--) {
         if (valueFrequency[i] === 3) {
             threeSame = i * 3
         }
-        else if (valueFrequency[i] == 2) {
+        else if (valueFrequency[i] === 2) {
             twoSame = i * 2;
         }
     }
@@ -94,7 +94,7 @@ function fullHouse() {
 }
 
 function smallStraight() {
-    if (valueFrequency.toString() == [0, 1, 1, 1, 1, 1, 0].toString()) {
+    if (valueFrequency.toString() === [0, 1, 1, 1, 1, 1, 0].toString()) {
         return 15;
     }
     else {
@@ -103,7 +103,7 @@ function smallStraight() {
 }
 
 function bigStraight() {
-    if (valueFrequency.toString() == [0, 0, 1, 1, 1, 1, 1].toString()) {
+    if (valueFrequency.toString() === [0, 0, 1, 1, 1, 1, 1].toString()) {
         return 20;
     }
     else {
@@ -118,7 +118,7 @@ function chance() {
 }
 
 function yatzy() {
-    for (i = valueFrequency.length - 1; i > 0; i--) {
+    for (let i = valueFrequency.length - 1; i > 0; i--) {
         if (valueFrequency[i] === 5) {
             return 50;
         }
@@ -126,9 +126,6 @@ function yatzy() {
     return 0;
 }
 
-/*
-    
-*/
 function possibleScorings() {
     let scorings = [];
     for (let i = 1; i < 7; i++) {
@@ -137,7 +134,7 @@ function possibleScorings() {
     let pointsFunctions = [onePairPoints, twoPairPoints, threeOfAKind, fourOfAKind, fullHouse, smallStraight,
         bigStraight, chance, yatzy];
 
-    for (pointsFunction of pointsFunctions) {
+    for (let pointsFunction of pointsFunctions) {
         scorings.push(pointsFunction());
     }
 
